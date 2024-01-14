@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('products', [
+    ProductsController::class,
+    'index'
+])->name('products');
+
+Route::get('products/{productName}/{id}', [
+    ProductsController::class,
+    'detail'
+])->where([
+    'detail' => '[a-zA-Z0-9]+',
+    'id' => '[0-9]+'
+]);
