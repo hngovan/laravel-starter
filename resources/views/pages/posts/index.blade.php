@@ -24,7 +24,13 @@
         <p class="font-light text-gray-500 sm:text-xl">We use an agile approach to test assumptions and connect with the
             needs of your audience early and often.</p>
     </div>
-    <div class="grid gap-8 lg:grid-cols-3">
+    <div class="flex justify-end">
+        <button type="button"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+            Create
+        </button>
+    </div>
+    <div class="grid gap-8 xl:grid-cols-3 lg:grid-cols-2">
         @foreach ($posts as $post)
             <article class="p-6 bg-white rounded-lg border border-gray-200 shadow-md flex flex-col justify-between">
                 <div>
@@ -59,37 +65,36 @@
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         const timeSinceElements = document.getElementsByClassName("time-since");
-        const aDay = 24 * 60 * 60 * 1000;
 
         function timeSince(date) {
             var seconds = Math.floor((new Date() - date) / 1000);
             var interval = seconds / 31536000;
             if (interval > 1) {
-                return Math.floor(interval) + " years";
+                return Math.floor(interval) + " years ago";
             }
             interval = seconds / 2592000;
             if (interval > 1) {
-                return Math.floor(interval) + " months";
+                return Math.floor(interval) + " months ago";
             }
             interval = seconds / 86400;
             if (interval > 1) {
-                return Math.floor(interval) + " days";
+                return Math.floor(interval) + " days ago";
             }
             interval = seconds / 3600;
             if (interval > 1) {
-                return Math.floor(interval) + " hours";
+                return Math.floor(interval) + " hours ago";
             }
             interval = seconds / 60;
             if (interval > 1) {
-                return Math.floor(interval) + " minutes";
+                return Math.floor(interval) + " minutes ago";
             }
-            return Math.floor(seconds) + " seconds";
-        };
+            return Math.floor(seconds) + " seconds ago";
+        }
 
         for (let i = 0; i < timeSinceElements.length; i++) {
             const dateString = timeSinceElements[i].innerText;
-            timeSinceElements[i].innerText = timeSince(new Date(dateString) - aDay);
-            console.log(timeSince(new Date(dateString) - aDay));
+            const date = new Date(dateString);
+            timeSinceElements[i].innerText = timeSince(date);
         }
     });
 </script>
