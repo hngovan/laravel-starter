@@ -16,18 +16,13 @@ use App\Http\Controllers\ProductsController;
 
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('pages.dashboard');
+})->name('home');
 
-Route::get('products', [
-    ProductsController::class,
-    'index'
-])->name('products');
+Route::get('products', [ProductsController::class, 'index'])->name('products.list');
 
-Route::get('products/{productName}/{id}', [
-    ProductsController::class,
-    'detail'
-])->where([
-    'detail' => '[a-zA-Z0-9]+',
-    'id' => '[0-9]+'
-]);
+Route::get('products/{productName}/{id}', [ProductsController::class, 'detail'])
+    ->where([
+        'detail' => '[a-zA-Z0-9]+',
+        'id' => '[0-9]+'
+    ]);

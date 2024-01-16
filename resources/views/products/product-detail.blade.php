@@ -1,4 +1,0 @@
-<div>
-    {{ $product}}
-    {{ $id}}
-</div>

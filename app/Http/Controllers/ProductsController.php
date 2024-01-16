@@ -21,7 +21,7 @@ class ProductsController extends Controller
         ];
 
         // return view('products.index', compact('my_phone'));
-        return view('products.index', [
+        return view('pages.products.index', [
             'my_phone' => $my_phone
         ]);
     }
@@ -33,7 +33,7 @@ class ProductsController extends Controller
             'iphone'  => 'iphone 15',
             'samsung' => 'samsung',
         ];
-        return view('products.product-detail',[
+        return view('pages.products.product-detail',[
             'product' => $phones[$productName] ?? 'not found',
             'id'      => $id,
         ]);
