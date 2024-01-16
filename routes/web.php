@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\PostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,5 @@ Route::get('products/{productName}/{id}', [ProductsController::class, 'detail'])
         'detail' => '[a-zA-Z0-9]+',
         'id' => '[0-9]+'
     ]);
+
+Route::get('posts', [PostsController::class, 'index'])->name('posts.list');

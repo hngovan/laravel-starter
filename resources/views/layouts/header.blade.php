@@ -8,6 +8,10 @@
             'name' => 'Products',
             'link' => 'products.list',
         ],
+        [
+            'name' => 'Posts',
+            'link' => 'posts.list',
+        ],
     ];
 @endphp
 
@@ -49,7 +53,7 @@
                     @foreach ($mainMenuItems as $item)
                         <li>
                             <a href="{{ route($item['link']) }}"
-                                class="block py-2 pr-4 pl-3 {{ request()->routeIs($item['link']) ? 'text-white' : 'text-gray-700' }}"
+                                class="block py-2 pr-4 pl-3 {{ request()->routeIs($item['link']) ? 'text-white' : 'text-gray-700' }} hover:text-white"
                                 aria-current="page">
                                 {{ $item['name'] }}
                             </a>

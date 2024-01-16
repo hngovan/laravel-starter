@@ -24,7 +24,7 @@
 @stop
 
 @section('content')
-    <h1>day la product</h1>
+    <h1>Products</h1>
     @foreach ($my_phone as $item)
         <h3>
             {{ $item }}
